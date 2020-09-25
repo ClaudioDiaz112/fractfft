@@ -5,7 +5,7 @@
 #include <stdint.h>
 
 
-#define BUFFSIZE 64
+#define BUFFSIZE 512
 
 typedef int32_t FIXED_32;
 

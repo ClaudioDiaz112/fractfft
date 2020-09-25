@@ -16,8 +16,6 @@ int main(void)
   FRACT16 Fract_Complex_Input[BUFFSIZE] = {0}; // input into fft function.
   FRACT16 FRACT16_input_array[BUFFSIZE]= {0};
 
-  FRACT16 output[1024]={0};
-
   fp = fopen("sigbin.bin", "rb");
   if(fp == 0) {
     perror("fopen");
@@ -28,22 +26,22 @@ int main(void)
 
       Fract_Real_Input[i] = (float_to_fract16(buff[i]));
     }
-    fix_fft(Fract_Real_Input,Fract_Complex_Input,6);
+    fix_fft(Fract_Real_Input,Fract_Complex_Input,9);
   }
   fclose(fp);
 
 
 
 
-// below all works verifed multi and add tested. 
+// below all works verifed multi and add tested.
   long place, root;
         for (int k=0; k < BUFFSIZE/2; k++)
         {
 	        Fract_Real_Input[k] = (fract16_add(fract16_multr(Fract_Real_Input[k],Fract_Real_Input[k]),
                    fract16_multr(Fract_Complex_Input[k],Fract_Complex_Input[k])));
-                   
-            
-          
+
+
+
 			root = 0;
 
 			if(Fract_Real_Input[k] >= 0) // Ensure we don't have a negative number
@@ -52,10 +50,10 @@ int main(void)
       }else{
         Fract_Real_Input[k] = root;
       }
-			
+
       }
-      
-      
+
+
 
 
   FILE * fp2;

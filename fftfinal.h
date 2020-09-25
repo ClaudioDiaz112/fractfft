@@ -46,7 +46,7 @@ static void fix_fft(short *fr , short *fi , short m)
 
 	while (l < n)
 	{
-		
+
 
 		// Variables for multiplication code
 		long int c;
@@ -67,13 +67,13 @@ static void fix_fft(short *fr , short *fi , short m)
 			{
 				j = i + l;
 
-		
+
 
 				 tr = fract16_multr(wr,fr[j]) - fract16_multr(wi,fi[j]);
-			
+
 
 				ti = fract16_multr(wr,fi[j]) + fract16_multr(wi,fr[j]);
-				
+
 
 				qr = fr[i];
 				qi = fi[i];
